@@ -25,65 +25,65 @@
         <script src="https://cdn.tailwindcss.com"></script>
 ## Option 2: Local installation (recommended for serious projects)
 
-Install dependencies
+<h3>simple way to start your project for V4</h3>
 
-      npm install tailwindcss @tailwindcss/postcss postcss
-Install Tailwind CSS v4 + CLI
+      i) npm init -y // this initialized the directory as a Node.js project
+      ii) npm install -D tailwindcss postcss autoprefixer vite //installs packages
+      iii) Manually create Tailwind and PostCSS config files
+            -tailwind.config.js:
+            /** @type {import('tailwindcss').Config} */
+                  export default {
+                    content: [
+                      "./*.html",
+                      "./src/**/*.{html,js}"
+                    ],
+                    theme: {
+                      extend: {},
+                    },
+                    plugins: [],
+                  }
+                  
+            -postcss.config.js:
+            export default {
+                    module.exports = {
+                    plugins: [
+                      require('@tailwindcss/postcss'),
+                      require('autoprefixer'),
+                    ],
+                  }
 
-      npm install -D tailwindcss @tailwindcss/cli
-Create basic folder structure
-
-      mkdir src dist
-      touch src/input.css index.html
-      
-Add your CSS file (src/input.css)
-
-      /* src/input.css */
-      @import "tailwindcss";
-      
-      /* Optional: custom theme (colors, fonts, spacing, etc.) */
-      @theme {
-        --color-primary: #3b82f6;
-        --color-primary-dark: #1d4ed8;
-        --color-success: #10b981;
-        
-        --font-sans: "Inter var", system-ui, -apple-system, sans-serif;
-      }
-      
-      /* Your own custom styles (optional) */
+           -Create your CSS file (e.g., src/input.css) and add:
+           
+                 /* Preflight (replaces @tailwind base) */
+                  @import "tailwindcss/preflight";
+                  
+                  /* Utilities (replaces @tailwind utilities) */
+                  @tailwind utilities;
 
 
-Add scripts to package.json
+      iv)Add scripts in package.json:
 
-          {
-              "name": "tailwind-css",
-              "version": "1.0.0",
-              "description": "Plain HTML + Tailwind CSS v4 project",
-              "main": "index.js",
-              "type": "commonjs",
-              "license": "ISC",
-              "author": "",
-              "scripts": {
-                "build": "npx @tailwindcss/cli -i ./src/main.css -o                                           ./dist/output.css --minify",
-                "watch": "npx @tailwindcss/cli -i ./src/main.css -o                                           ./dist/output.css --watch",
-                "dev": "npx @tailwindcss/cli -i ./src/main.css -o ./dist/output.css                               --watch"
-              },
-              "dependencies": {
-                "@tailwindcss/postcss": "^4.1.18",
-                "postcss": "^8.5.6",
-                "tailwindcss": "^4.1.18"
-              },
-              "devDependencies": {
-                "@tailwindcss/cli": "^4.1.18"
-              }
+            "scripts": {
+              "dev": "tailwindcss -i ./src/input.css -o ./dist/output.css --watch",
+              "build": "tailwindcss -i ./src/input.css -o ./dist/output.css --                        minify",
+              "start": "vite"
             }
-Create basic index.html
 
-      <link href="./dist/output.css" rel="stylesheet">
-Start developing
+             
+      
+      v)Build or watch Tailwind CSS
+      
+            npm run dev
+       Build minified CSS for production:
 
-      # Development (auto rebuild on change)
-      npm run dev
+             npm run build
+      vii)Include generated CSS in your HTML:
+
+            <link href="./dist/output.css" rel="stylesheet">
+
+     viii)Start Vite server (optional if using Vite for live reload):
+
+           npm run start
 
 <h3 align='center'>Eelments</h3>
 
@@ -162,7 +162,12 @@ shadow / shadow-lg → box shadow
 w-{value} / h-{value} → width / height
 
 
-### justify-* only works on flex or grid containers.
+- ** justify-* only works on flex or grid containers. **
+- **Use h-screen instead of h-100 (Tailwind doesn’t recognize h-100 by default) to make the section full viewport height. **
+
+
+
+
 <h3 align='center'>How Does It Work?</h3>
 <h3 align='center'>Fundamental</h3>
 <h3 align='center'>Just-In-Time (JIT) Compiler</h3>
