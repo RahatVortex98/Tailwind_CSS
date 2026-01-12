@@ -28,9 +28,13 @@
 <h3>simple way to start your project for V4</h3>
 
       i) npm init -y // this initialized the directory as a Node.js project
+      
       ii) npm install -D tailwindcss postcss autoprefixer vite //installs packages
+      
       iii) Manually create Tailwind and PostCSS config files
+      
             -tailwind.config.js:
+            
             /** @type {import('tailwindcss').Config} */
                   export default {
                     content: [
@@ -44,6 +48,7 @@
                   }
                   
             -postcss.config.js:
+            
             export default {
                     module.exports = {
                     plugins: [
@@ -65,7 +70,7 @@
 
             "scripts": {
               "dev": "tailwindcss -i ./src/input.css -o ./dist/output.css --watch",
-              "build": "tailwindcss -i ./src/input.css -o ./dist/output.css --                        minify",
+              "build": "tailwindcss -i ./src/input.css -o ./dist/output.css --minify",
               "start": "vite"
             }
 
@@ -74,9 +79,11 @@
       v)Build or watch Tailwind CSS
       
             npm run dev
+            
        Build minified CSS for production:
 
              npm run build
+             
       vii)Include generated CSS in your HTML:
 
             <link href="./dist/output.css" rel="stylesheet">
