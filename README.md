@@ -88,6 +88,10 @@
 
             <link href="./dist/output.css" rel="stylesheet">
 
+            <link href="./src/input.css" rel="stylesheet">
+            
+      // for this only "npm run start" will work
+      
      viii)Start Vite server (optional if using Vite for live reload):
 
            npm run start
@@ -175,7 +179,53 @@ w-{value} / h-{value} → width / height
 
 
 
-<h3 align='center'>How Does It Work?</h3>
+<h3 align='center'>Font & Sizing</h3>
+
+sm-small
+lg-large
+md-medium
+
+- **The font-* Classes**
+These classes change the actual identity and thickness of the letters. They deal with the font file itself.
+
+Family: font-sans, font-serif, font-mono (Changes the "style" of the letters).
+
+Weight: font-bold, font-light, font-black (Changes how "thick" or "heavy" the letters are).
+
+Style: italic (Technically maps to font-style: italic).
+
+
+- **The text-* Classes**
+  
+These classes are about the appearance and layout of the text on the page. Interestingly, Tailwind also puts "Size" in this category.
+
+Size: text-sm, text-xl, text-5xl (Changes how big the letters are).
+
+Color: text-blue-500, text-white, text-transparent (Changes the color).
+
+Alignment: text-center, text-right, text-justify (Changes where the text sits).
+
+Decoration: underline, uppercase, lowercase (Adds lines or changes capitalization).
+
+
+- **Custom fonts**
+
+-> src/input.css
+
+      @import "tailwindcss";
+      
+      @theme {
+        /* This creates a new class called font-brand */
+        --font-brand: "Poppins", sans-serif;
+        
+        /* This overwrites the default font-sans with Inter */
+        --font-sans: "Inter", ui-sans-serif, system-ui;
+      }
+            
+<h3 align='center'>Margin,Borders & Padding</h3>
+
+
+
 <h3 align='center'>Fundamental</h3>
 <h3 align='center'>Just-In-Time (JIT) Compiler</h3>
 <h3 align='center'>Layout & Flex-box</h3>
