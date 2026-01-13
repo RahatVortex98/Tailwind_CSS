@@ -1,236 +1,245 @@
-<h3 align='center'>Tailwind CSS</h3>
+<h2 align="center">🌬️ Tailwind CSS</h2>
 
+---
 
-<h3 align='center'>Introduction</h3>
+<h3 align="center">Introduction</h3>
 
 ### ➡️ Tailwind CSS is a utility-first CSS framework. Instead of writing custom CSS rules, you compose designs directly in your HTML using predefined utility classes.
 
-- **Traditional CSS:**
+* **Traditional CSS:**
 
-      .btn {
-      padding: 12px;
-      background: #2563eb;
-      color: white;
-      border-radius: 6px;
-    }
-- **Tailwind CSS:**
+```css
+.btn {
+  padding: 12px;
+  background: #2563eb;
+  color: white;
+  border-radius: 6px;
+}
+```
 
-      <button class="px-4 py-3 bg-blue-600 text-white rounded-md"> Button</button>
+* **Tailwind CSS:**
 
-<h3 align='center'>Installaion</h3>
+```html
+<button class="px-4 py-3 bg-blue-600 text-white rounded-md">Button</button>
+```
+
+---
+
+<h3 align="center">Installation</h3>
 
 ## Option 1: Quickest way (CDN – great for prototypes)
 
-      <!-- Tailwind CDN (v3.4+) -->
-        <script src="https://cdn.tailwindcss.com"></script>
+```html
+<!-- Tailwind CDN (v3.4+) -->
+<script src="https://cdn.tailwindcss.com"></script>
+```
+
 ## Option 2: Local installation (recommended for serious projects)
 
-<h3>simple way to start your project for V4</h3>
-
-      i) npm init -y // this initialized the directory as a Node.js project
-      
-      ii) npm install -D tailwindcss postcss autoprefixer vite //installs packages
-      
-      iii) Manually create Tailwind and PostCSS config files
-      
-            -tailwind.config.js:
-            
-            /** @type {import('tailwindcss').Config} */
-                  export default {
-                    content: [
-                      "./*.html",
-                      "./src/**/*.{html,js}"
-                    ],
-                    theme: {
-                      extend: {},
-                    },
-                    plugins: [],
-                  }
-                  
-            -postcss.config.js:
-            
-            export default {
-                    module.exports = {
-                    plugins: [
-                      require('@tailwindcss/postcss'),
-                      require('autoprefixer'),
-                    ],
-                  }
+<h3>Simple way to start your project for V4</h3>
 
-           -Create your CSS file (e.g., src/input.css) and add:
-           
-                 /* Preflight (replaces @tailwind base) */
-                  @import "tailwindcss/preflight";
-                  
-                  /* Utilities (replaces @tailwind utilities) */
-                  @tailwind utilities;
+```bash
+i) npm init -y        # initializes the directory as a Node.js project
+ii) npm install -D tailwindcss postcss autoprefixer vite   # installs packages
+```
 
+### iii) Manually create Tailwind and PostCSS config files
 
-      iv)Add scripts in package.json:
+**tailwind.config.js**
 
-            "scripts": {
-              "dev": "tailwindcss -i ./src/input.css -o ./dist/output.css --watch",
-              "build": "tailwindcss -i ./src/input.css -o ./dist/output.css --minify",
-              "start": "vite"
-            }
+```js
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: [
+    "./*.html",
+    "./src/**/*.{html,js}",
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+```
 
-             
-      
-      v)Build or watch Tailwind CSS
-      
-            npm run dev
-            
-       Build minified CSS for production:
+**postcss.config.js**
+
+```js
+export default {
+  module.exports = {
+    plugins: [
+      require('@tailwindcss/postcss'),
+      require('autoprefixer'),
+    ],
+  }
+}
+```
+
+### Create your CSS file (e.g., `src/input.css`) and add:
 
-             npm run build
-             
-      vii)Include generated CSS in your HTML:
+```css
+/* Preflight (replaces @tailwind base) */
+@import "tailwindcss/preflight";
 
-            <link href="./dist/output.css" rel="stylesheet">
+/* Utilities (replaces @tailwind utilities) */
+@tailwind utilities;
+```
 
-            <link href="./src/input.css" rel="stylesheet">
-            
-      // for this only "npm run start" will work
-      
-     viii)Start Vite server (optional if using Vite for live reload):
+### iv) Add scripts in `package.json`
+
+```json
+"scripts": {
+  "dev": "tailwindcss -i ./src/input.css -o ./dist/output.css --watch",
+  "build": "tailwindcss -i ./src/input.css -o ./dist/output.css --minify",
+  "start": "vite"
+}
+```
 
-           npm run start
+### v) Build or watch Tailwind CSS
 
-<h3 align='center'>Eelments</h3>
+```bash
+npm run dev
+```
 
-1. Spacing (padding & margin)
+**Build minified CSS for production:**
 
-px-{value} → padding left & right (x-axis)
+```bash
+npm run build
+```
 
-py-{value} → padding top & bottom (y-axis)
+### vii) Include generated CSS in your HTML
 
-mx-{value} → margin left & right (x-axis)
+```html
+<link href="./dist/output.css" rel="stylesheet">
+<link href="./src/input.css" rel="stylesheet">
+```
 
-my-{value} → margin top & bottom (y-axis)
+```txt
+# for this only "npm run start" will work
+```
 
-p-{value} → padding on all sides
+### viii) Start Vite server (optional if using Vite for live reload)
 
-2. Colors
+```bash
+npm run start
+```
 
-bg-{color}-{shade} → background color
+---
 
-text-{color}-{shade} → text color
+<h3 align="center">Elements</h3>
 
-Shades usually go 100 (light) → 900 (dark)
+## 1. Spacing (padding & margin)
 
-      <div class="bg-blue-500 text-white">Hello</div>
-      
-3. Flexbox utilities
+* `px-{value}` → padding left & right (x-axis)
+* `py-{value}` → padding top & bottom (y-axis)
+* `mx-{value}` → margin left & right (x-axis)
+* `my-{value}` → margin top & bottom (y-axis)
+* `p-{value}` → padding on all sides
 
-flex → makes the element a flex container
+## 2. Colors
 
-flex-row → horizontal direction (default)
+* `bg-{color}-{shade}` → background color
+* `text-{color}-{shade}` → text color
 
-flex-col → vertical direction
+Shades usually go **100 (light) → 900 (dark)**
 
-space-x-{value} → horizontal space between child elements
+```html
+<div class="bg-blue-500 text-white">Hello</div>
+```
 
-space-y-{value} → vertical space between child elements
+## 3. Flexbox utilities
 
-justify-{start|center|end|between|around|evenly} → alignment along main axis
+* `flex` → makes the element a flex container
+* `flex-row` → horizontal direction (default)
+* `flex-col` → vertical direction
+* `space-x-{value}` → horizontal space between children
+* `space-y-{value}` → vertical space between children
+* `justify-{start|center|end|between|around|evenly}` → main axis alignment
+* `items-{start|center|end|stretch|baseline}` → cross axis alignment
 
-items-{start|center|end|stretch|baseline} → alignment along cross axis
+```html
+<div class="flex justify-center items-center space-x-4">
+  <div class="bg-red-500 p-2">One</div>
+  <div class="bg-green-500 p-2">Two</div>
+  <div class="bg-blue-500 p-2">Three</div>
+</div>
+```
 
-      <div class="flex justify-center items-center space-x-4">
-        <div class="bg-red-500 p-2">One</div>
-        <div class="bg-green-500 p-2">Two</div>
-        <div class="bg-blue-500 p-2">Three</div>
-      </div>
-      
-justify-start → align left/top
+**Justify options:**
 
-justify-center → align center
+* `justify-start` → align left/top
+* `justify-center` → align center
+* `justify-end` → align right/bottom
+* `justify-between` → equal space between items
+* `justify-around` → equal space around items
+* `justify-evenly` → equal space between and around items
 
-justify-end → align right/bottom
+## 4. Text utilities
 
-justify-between → equal space between items
+* `text-{size}` → font size (e.g., `text-sm`, `text-lg`, `text-2xl`)
+* `font-{weight}` → font weight (e.g., `font-bold`, `font-medium`)
+* `text-{color}-{shade}` → text color
 
-justify-around → equal space around items
+## 5. Other useful things
 
-justify-evenly → equal space between and around items
+* `rounded-{size}` → border radius
+* `border` / `border-{color}-{shade}` → borders
+* `shadow` / `shadow-lg` → box shadow
+* `w-{value}` / `h-{value}` → width / height
 
-4. Text utilities
+> **Note:** `justify-*` only works on flex or grid containers.
 
-text-{size} → font size (e.g., text-sm, text-lg, text-2xl)
+> **Tip:** Use `h-screen` instead of `h-100` (Tailwind doesn’t recognize `h-100` by default).
 
-font-{weight} → font weight (e.g., font-bold, font-medium)
+---
 
-text-{color}-{shade} → text color
+<h3 align="center">Font & Sizing</h3>
 
-5. Other useful things
+* `sm` → small
+* `md` → medium
+* `lg` → large
 
-rounded-{size} → border radius
+### **The `font-*` Classes**
 
-border / border-{color}-{shade} → border and color
+These classes change the actual identity and thickness of the letters.
 
-shadow / shadow-lg → box shadow
+* **Family:** `font-sans`, `font-serif`, `font-mono`
+* **Weight:** `font-bold`, `font-light`, `font-black`
+* **Style:** `italic`
 
-w-{value} / h-{value} → width / height
+### **The `text-*` Classes**
 
+These control appearance and layout.
 
-- ** justify-* only works on flex or grid containers. **
-- **Use h-screen instead of h-100 (Tailwind doesn’t recognize h-100 by default) to make the section full viewport height. **
+* **Size:** `text-sm`, `text-xl`, `text-5xl`
+* **Color:** `text-blue-500`, `text-white`, `text-transparent`
+* **Alignment:** `text-center`, `text-right`, `text-justify`
+* **Decoration:** `underline`, `uppercase`, `lowercase`
 
+### **Custom fonts**
 
+**`src/input.css`**
 
+```css
+@import "tailwindcss";
 
-<h3 align='center'>Font & Sizing</h3>
+@theme {
+  /* This creates a new class called font-brand */
+  --font-brand: "Poppins", sans-serif;
 
-sm-small
-lg-large
-md-medium
+  /* This overwrites the default font-sans with Inter */
+  --font-sans: "Inter", ui-sans-serif, system-ui;
+}
+```
 
-- **The font-* Classes**
-These classes change the actual identity and thickness of the letters. They deal with the font file itself.
+---
 
-Family: font-sans, font-serif, font-mono (Changes the "style" of the letters).
+<h3 align="center">Margin, Borders & Padding</h3>
 
-Weight: font-bold, font-light, font-black (Changes how "thick" or "heavy" the letters are).
-
-Style: italic (Technically maps to font-style: italic).
-
-
-- **The text-* Classes**
-  
-These classes are about the appearance and layout of the text on the page. Interestingly, Tailwind also puts "Size" in this category.
-
-Size: text-sm, text-xl, text-5xl (Changes how big the letters are).
-
-Color: text-blue-500, text-white, text-transparent (Changes the color).
-
-Alignment: text-center, text-right, text-justify (Changes where the text sits).
-
-Decoration: underline, uppercase, lowercase (Adds lines or changes capitalization).
-
-
-- **Custom fonts**
-
--> src/input.css
-
-      @import "tailwindcss";
-      
-      @theme {
-        /* This creates a new class called font-brand */
-        --font-brand: "Poppins", sans-serif;
-        
-        /* This overwrites the default font-sans with Inter */
-        --font-sans: "Inter", ui-sans-serif, system-ui;
-      }
-            
-<h3 align='center'>Margin,Borders & Padding</h3>
-
-
-
-<h3 align='center'>Fundamental</h3>
-<h3 align='center'>Just-In-Time (JIT) Compiler</h3>
-<h3 align='center'>Layout & Flex-box</h3>
-<h3 align='center'>Media Query & Responsive Design</h3>
-<h3 align='center'>Dark Mode</h3>
-<h3 align='center'>Custom Styles & Reusability</h3>
-<h3 align='center'>Tips & Tricks</h3>
-<h3 align='center'>Fitness Project Details</h3>
+<h3 align="center">Fundamental</h3>
+<h3 align="center">Just-In-Time (JIT) Compiler</h3>
+<h3 align="center">Layout & Flex-box</h3>
+<h3 align="center">Media Query & Responsive Design</h3>
+<h3 align="center">Dark Mode</h3>
+<h3 align="center">Custom Styles & Reusability</h3>
+<h3 align="center">Tips & Tricks</h3>
+<h3 align="center">Fitness Project Details</h3>
