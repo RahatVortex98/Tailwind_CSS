@@ -287,3 +287,46 @@ If a text editor (Vim) pops up, just type :wq and hit Enter to save and exit.
 git push -u origin main
 ```
 
+
+### Traversey
+
+```CSS
+<input type="text" class="border-amber-800">when i write this nothing showing <input type="text" class="border border-amber-800"> but i wrtie this it;s showing
+```
+
+border: This tells Tailwind to apply border-width: 1px; and border-style: solid;.
+
+border-amber-800: This tells Tailwind to apply the specific color.
+
+- Divide Color:
+
+```Css
+<div class="divide-y divide-amber-700">
+    <div class="">item 1</div>
+    <div class="">item 2</div>
+    <div class="">item 3</div>
+    <div class="">item 4</div>
+    <div class="">item 5</div>
+   
+</div>
+```
+
+-Breakdown For contanterL
+
+Container none width:100%;
+
+sm (640px)  max-width:640px;
+md (768px)  max-width:768px;
+lg (1024px)  max-width:1024px;
+xl (1280px)  max-width:1280px;
+2xl (1536px)  max-width:1536px;
+
+
+
+
+
+
+
+
+
+  
