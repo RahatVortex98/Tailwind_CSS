@@ -238,13 +238,52 @@ These control appearance and layout.
 
 ---
 
-<h3 align="center">Margin, Borders & Padding</h3>
 
-<h3 align="center">Fundamental</h3>
-<h3 align="center">Just-In-Time (JIT) Compiler</h3>
-<h3 align="center">Layout & Flex-box</h3>
-<h3 align="center">Media Query & Responsive Design</h3>
-<h3 align="center">Dark Mode</h3>
-<h3 align="center">Custom Styles & Reusability</h3>
-<h3 align="center">Tips & Tricks</h3>
-<h3 align="center">Fitness Project Details</h3>
+### Git(back to previous project)
+
+In your terminal (inside D:\Tailwind-CSS), run:
+
+```Git
+git init
+```
+This creates the hidden .git folder. The error you saw will now go away.
+
+2. Track your files:
+```CMD
+git add .
+git commit -m "Testing git flow for tailwind project"
+```
+3. Connect to GitHub
+If you want to actually pull or push, Git needs to know where to go.
+Go to your GitHub and create a new repository called Tailwind-Test.
+Copy the URL.
+Come back to your terminal and type:
+
+```CMD
+git remote add origin https://github.com/YourUsername/Tailwind-Test.git
+```
+4. Push/Pull
+Now your commands will work!
+
+To Push: git push -u origin main
+To Pull: git pull origin main
+
+5.If this failed :
+
+```CMD
+git branch -m main
+```
+6. Pull with "unrelated histories"
+Since there are files on GitHub (like a README or License) that aren't on your computer, you need to force Git to merge them:
+
+```CMD
+git pull origin main --allow-unrelated-histories
+```
+If a text editor (Vim) pops up, just type :wq and hit Enter to save and exit.
+
+7.Now Push:
+
+```CMD
+git push -u origin main
+```
+
