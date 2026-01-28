@@ -1,0 +1,13 @@
+/* src/main.css */
+@import "tailwindcss";
+
+/* You can add custom theme config here (optional) */
+@theme {
+  --color-primary: #3b82f6;
+  --color-primary-dark: #1d4ed8;
+}
+
+/* Your own styles after Tailwind */
+body {
+  font-family: system-ui, sans-serif;
+}

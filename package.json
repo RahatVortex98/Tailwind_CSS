@@ -1,0 +1,22 @@
+{
+  "name": "tailwind-css",
+  "version": "1.0.0",
+  "description": "Plain HTML + Tailwind CSS v4 project",
+  "main": "index.js",
+  "type": "commonjs",
+  "license": "ISC",
+  "author": "",
+  "scripts": {
+    "build": "npx @tailwindcss/cli -i ./src/main.css -o ./dist/output.css --minify",
+    "watch": "npx @tailwindcss/cli -i ./src/main.css -o ./dist/output.css --watch",
+    "dev": "npx @tailwindcss/cli -i ./src/main.css -o ./dist/output.css --watch"
+  },
+  "dependencies": {
+    "@tailwindcss/postcss": "^4.1.18",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.18"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.1.18"
+  }
+}
